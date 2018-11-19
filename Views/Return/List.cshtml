@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Music>
+
+<table class="table table-striped table-hover">
+    <thed>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Authors Name</th>
+            <th>Borrower Name</th>
+            <th>Return</th>
+        </tr>
+    </thed>
+    <tbody>
+        @foreach (Music music in Model)
+        {
+        <tr>
+            <td>@music.MusicID</td>
+            <td>@music.Title</td>
+            <td>@music.Author.AuthorID</td>
+            <td>@music.Borrower.Name</td>
+            <td><a class="btn btn-success" asp-area="" asp-controller="Return" asp-action="ReturnMusic" asp-route-musicID="@music.MusicID">Return</a></td>
+        </tr>
+        }
+    </tbody>
+</table>

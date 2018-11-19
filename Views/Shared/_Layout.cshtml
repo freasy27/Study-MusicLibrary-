@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/dist/css/bootstrap.css" />
+</head>
+<body>
+    <!--меню-->
+    <nav class="navbar navbar-inverse navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <div class="navbar-"
+            <div>
+                <ul class="nav navbar-nav">
+                    <li><a asp-controller="Home" asp-action="" class="btn btn-primary">Home</a></li>
+                    <li><a asp-controller="Customer" asp-action="" class="btn btn-primary">Customers</a></li>
+                    <li><a asp-controller="Author" asp-action="" class="btn btn-primary">Author</a></li>
+                    <li><a asp-controller="Music" asp-action="" class="btn btn-primary">Music</a></li>
+                    <li><a asp-controller="Lend" asp-action="" class="btn btn-primary">Lend</a></li>
+                    <li><a asp-controller="Return" asp-action="" class="btn btn-primary">Return</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2018 - Music</p>
+        </footer>
+    </div>
+</body>
+</html>

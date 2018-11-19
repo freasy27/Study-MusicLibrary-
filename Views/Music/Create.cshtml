@@ -1,0 +1,34 @@
+﻿@model MusicViewModel
+
+<div class="">
+    <form asp-controller="Music" asp-action="Create" method="post" class="d-inline" role="form">
+        <h3 class="offset-2">Create new music</h3> 
+
+        <div class="form-group">
+            <label asp-for="Music.Author" class="col-md-2 form-inline"></label>
+            <div class="col-md-4">
+                @Html.DropDownListFor(m => m.Music.AuthorID,
+               new SelectList(Model.Authors.Select(x => new { Value = x.AuthorID, Text = x.Name }), "Value", "Text"),
+               htmlAttributes: new { @class = "form-contol border-input" })
+                <span asp-validation-for="Music.Author" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-2 col-sm-2" style="margin-top:20px">
+                <a class="btn btn-success" style="width:100%" asp-controller="Author" asp-action="Create">Create an author</a>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Music.Title" class="col-md-2 col-sm-2 col-lg-2 form-inline"></label>
+            <div class="col-md-6 col-sm-6 col-lg-6">
+                <input asp-for="Music.Title" class="form-control" placeholder="Enter music title" />
+                <span asp-validation-for="Music.Title" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="btn-group col-md-6">
+                <input class="btn btn-outline-primary" type="submit" value="Return" asp-controller="Music" asp-action="List" />
+                <input class="btn btn-success" type="submit" value="Create" />
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,27 @@
+﻿
+
+<a class="btn btn-success mt-5" style="margin:10px" asp-controller="Music" asp-action="Create">Create new Music</a>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Authors name</th>
+            <th>Edit book</th>
+            <th>Delete book</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Music music in Model)
+        {
+            <tr>
+                <th>@music.MusicID</th>
+                <th>@music.Title</th>
+                <th>@music.Author.Name</th>
+                <th><a class="btn btn-info" asp-area="" asp-controller="Music" asp-action="Update" asp-route-id="@music.MusicID">Edit</a></th>
+                <th><a class="btn btn-danger" asp-area="" asp-controller="Music" asp-action="Delete" asp-route-id="@music.MusicID" asp-route-authorID="@music.Author.AuthorID">Delete</a></th>
+            </tr>
+        }
+    </tbody>
+</table>

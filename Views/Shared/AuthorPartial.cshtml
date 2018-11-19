@@ -1,0 +1,25 @@
+﻿@model Author
+
+<div class="col-sm-4 col-lg-4 col-md-4 align-content-center">
+    <div class="card bg-primary">
+        <div class="card-header">
+            <p>@Model.Name</p>
+        </div>
+        <div class="card-body bg-light">
+            <h2>Music count: @Model.Musics?.Count</h2>
+            <div class="btn-group">
+                @if (Model.Musics?.Count == 0)
+                {
+                    <a class="btn btn-outline-info" asp-area="">View music list</a>
+                }
+                else
+                {
+                    <a class="btn btn-outline-info" asp-area="" asp-controller="Author" asp-action="List" asp-route-id="@Model.AuthorID">View music list</a>
+                }
+                <a class="btn btn-info" asp-area="" asp-controller="Author" asp-action="Update" asp-route-id="@Model.AuthorID">Update</a>
+                <a class="btn btn-danger" asp-area="" asp-controller="Author" asp-action="Delete" asp-route-id="@Model.AuthorID">Delete</a>
+            </div>
+        </div>
+
+    </div>
+</div>
